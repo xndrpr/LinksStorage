@@ -12,6 +12,7 @@
     Closing="Window_Closing"
     DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}"
     mc:Ignorable="d">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -72,14 +73,21 @@
             Width="250"
             Margin="5"
             md:HintAssist.Hint="Name"
+            AcceptsReturn="False"
             Text="{Binding Name}" />
         <TextBox
             Grid.Row="2"
             Width="250"
             Margin="5"
             md:HintAssist.Hint="Url"
-            Text="{Binding Url}" />
+            AcceptsReturn="False"
+            Text="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.InputBindings>
+                <KeyBinding Key="Enter" Command="{Binding ActionButtonCommand}" />
+            </TextBox.InputBindings>
+        </TextBox>
         <Button
+            x:Name="actionButton"
             Grid.Row="3"
             Width="250"
             Command="{Binding ActionButtonCommand}"

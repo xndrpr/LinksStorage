@@ -1,13 +1,10 @@
 ﻿using DevExpress.Mvvm;
-using DevExpress.Mvvm.Native;
 using LinksStorage.DAL.Entities;
 using LinksStorage.Domain.Services;
 using System;
 using System.Collections.Generic;
-using System.DirectoryServices.ActiveDirectory;
 using System.IO;
 using System.Net;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -50,6 +47,8 @@ namespace LinksStorage.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
+                    if (Url == null) return;
+
                     if (Url.StartsWith("https://") == false
                         && Url.StartsWith("http://") == false)
                     {

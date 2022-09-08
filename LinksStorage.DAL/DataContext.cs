@@ -9,7 +9,7 @@ namespace LinksStorage.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "Database.db");
+            // var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "Database.db");
             var dbPath = @"D:\Programming\Projects\LinksStorage\LinksStorage\DB\Database.db";
             optionsBuilder.UseSqlite("Data Source = " + dbPath);
             base.OnConfiguring(optionsBuilder);

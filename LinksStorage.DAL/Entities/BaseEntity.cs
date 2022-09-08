@@ -3,6 +3,6 @@
     public class BaseEntity : IEntity
     {
         public int Id { get; set; }
-        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public string CreationDate { get; set; } = DateTime.Now.ToShortDateString();
     }
 }
